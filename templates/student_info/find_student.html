@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<caption><h2> Choose parameters for the search </h2></caption>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div> Choose pole name </div>
+    <p><select name="pole_name">
+    <option>Выберите из списка</option>
+    <option>group</option>
+    <option>fio</option>
+    <option>birthdate</option>
+    <option>sex</option>
+    <option>financing_form</option>
+    <option>profcard</option>
+    <option>student_book</option>
+    <option>role</option>
+    <option>comment</option>
+    <option>telegram_id</option>
+    </select></p>
+    <div> Input value </div>
+    <div><input type="text" name="value"></div>
+    <br>
+    <p><input type="submit" value="Search"></p>
+</form>
+
+{% endblock %}

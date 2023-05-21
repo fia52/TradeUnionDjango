@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %} Добавление данных в бд {% endblock %}
+
+{% block content %}
+    <h2>Загрузите файл</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="data">
+        <button type="submit">Загрузить</button>
+    </form>
+{% endblock %}

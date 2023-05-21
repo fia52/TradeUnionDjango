@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<caption><h2> All students </h2></caption>
+<table class="table">
+    <thead>
+    <tr>
+        <th>group</th>
+        <th>fio</th>
+        <th>BIRTHDATE</th>
+        <th>SEX</th>
+        <th>FINANCING_FORM</th>
+        <th>PROF_CARD</th>
+        <th>STUD_BOOK</th>
+        <th>ROLE</th>
+        <th>COMMENT</th>
+        <th>TG_ID</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for student in students %}
+        <tr>
+
+            <td> {{ student.group }} </td>
+            <td> {{ student.fio }} </td>
+            <td> {{ student.birthdate }} </td>
+            <td> {{ student.sex }} </td>
+            <td> {{ student.financing_form }} </td>
+            <td> {{ student.profcard }} </td>
+            <td> {{ student.student_book }} </td>
+            <td> {{ student.role }} </td>
+            <td> {{ student.comment }} </td>
+            <td> {{ student.telegram_id }} </td>
+            <td> <a href="update_student/{{ student.id }}"> Redact </a> </td>
+            <td>
+                <form method="post" action="delete_student/{{ student.id }}">
+                    {% csrf_token %}
+                    <input type="submit" value="Удалить"/>
+                </form>
+            </td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
